@@ -57,7 +57,7 @@ export default class Pictures extends Component {
 	};
 	render(){
 		const { data, offset, pageCount, thisData, modalIsOpen } = this.state;
-		const margin = (window.innerWidth > 512) ? 8 : 3;
+		//const margin = (window.innerWidth > 512) ? 8 : 3;
 		return (
 		<div className="row">
 			<div className="container pictures">
@@ -90,7 +90,7 @@ export default class Pictures extends Component {
 				nextLabel={<FontAwesomeIcon icon={faAngleDoubleRight} size="lg" />}
 				breakClassName={"break-me"}
 				pageCount={pageCount}
-				marginPagesDisplayed={margin}
+				marginPagesDisplayed={8}
 				pageRangeDisplayed={1}
 				onPageChange={this.handlePageClick}
 				containerClassName={"pagination"}
