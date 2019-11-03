@@ -1,35 +1,83 @@
-import React from 'react';
-import Layout from '../src/components/myLayout';
+import React, { Component } from 'react'
+import Layout from '../src/components/myLayout'
+import Jumbotron from '../src/components/Jumbotron'
+import '../src/styles/pictures.scss'
 import Link from 'next/link'
+import ReactPaginate from 'react-paginate'
+import fetch from 'isomorphic-unfetch'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
-const Index = props => (
-    <Layout>
-        <div className="jumbotron container">
-			<h1>Picture Gallery</h1>
-			<p>For Four Years, I created a photo gallery of pictures I took which I featured on my front page as "Picture of the Week."  It was a fun project that kept me looking at my portfolio site.  But reaching the Four Year mark, I felt it was necessary to pull the plug and make my portfolio site focused solely on my projects.  With that, I moved the photo gallery to its own page.  Here are the photos from my Picture of the Week gallery.</p>
-		</div>
+class Index extends Component {
+    constructor(props) {
+		super(props);
+		this.state = {
+			offset: 0
+		};
+	}
+    handlePageClick = (data) => {
+		let selected = data.selected;
+		let offset = Math.ceil(selected * 15);
+		this.setState({offset: offset});
+	};
+    render() {
+        const { pictures, pageCount } = this.props;
+        const { offset } = this.state;
+        const linkName = 'https://s3-us-west-2.amazonaws.com/picture-gallery.bodiewebdesign.com';
+        return(
+        <Layout>
+        <Jumbotron />
         <div className="row">
-            {props.pictures.map((picture, index) => (
-                <div key={index} className="col-md-4">
-                    <div className="photo">
+            {pictures.map((picture, index) => {
+                if (index >= offset && index < offset + 15) {
+                    return (
+                        <div key={index} className="col-md-4">
+                        <div className="photo">
                         <Link href="/p/[index]" as={`/p/${index}`}>
-                            <img src={`https://s3-us-west-2.amazonaws.com/picture-gallery.bodiewebdesign.com/assets/${picture.image}`} alt={picture.alt} className="img-fluid"/>
+                            <img src={`${linkName}/assets/img/${picture.image}.jpg`} alt={picture.alt} className="img-fluid"/>
                         </Link>
                     </div>
                 </div>
-            ))}
+                )
+                
+            }
+        })}
         </div>
+        <ReactPaginate 
+				previousLabel={<FontAwesomeIcon icon={faAngleDoubleLeft} size="lg" />}
+				nextLabel={<FontAwesomeIcon icon={faAngleDoubleRight} size="lg" />}
+				breakClassName={"break-me"}
+				pageCount={pageCount}
+				marginPagesDisplayed={8}
+				pageRangeDisplayed={1}
+				onPageChange={this.handlePageClick}
+				containerClassName={"pagination"}
+				subContainerClassName={"pages pagination"}
+				activeClassName={"active"} 
+			/>
     </Layout>
-    
-  );
-  
+        )
+    }
+}
+
 Index.getInitialProps = async function() {
     const res = await fetch('https://s3-us-west-2.amazonaws.com/picture-gallery.bodiewebdesign.com/assets/data/pictures.json');
     const data = await res.json();
-
+    const perPage = 15;
     return {
         pictures: data.map(entry => entry),
+        pageCount: Math.ceil(data.length / perPage)
     };
 };
 
-  export default Index;
+export default Index;
+
+
+/*
+<div className="photo-overlay">
+		<h2>{item.title}</h2>
+		<p>{item.description}</p>
+		<p>Week of: {item.week}</p>
+		<p>Location: {item.location}, {item.state}</p>
+	</div>
+*/

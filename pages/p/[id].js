@@ -5,7 +5,7 @@ const Post = props => (
     <Layout>
         <div className="row modal-body" style={{background: 'black'}}>
             <div className="col-sm-6">
-                <img src={`https://s3-us-west-2.amazonaws.com/picture-gallery.bodiewebdesign.com/assets/${props.item.image}`} alt={props.item.title} className="img-fluid"/>
+                <img src={`https://s3-us-west-2.amazonaws.com/picture-gallery.bodiewebdesign.com/assets/img/${props.item.image}.jpg`} alt={props.item.title} className="img-fluid"/>
             </div>
             <div className="modal-description col-sm-6">
                 <div className="modal-title">
