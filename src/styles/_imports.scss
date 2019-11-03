@@ -13,16 +13,6 @@ $monserrat: 'Monserrat', sans-serif;
 	background: linear-gradient($color1, $color2);
 }
 
-@mixin center-image {
-	display: block;
-	margin: 0 auto;
-}
-
-@mixin responsive {
-	max-width: 100%;
-	height: auto;
-}
-
 @mixin flex {
 	display: flex;
 	flex-wrap: wrap;
@@ -40,4 +30,16 @@ $monserrat: 'Monserrat', sans-serif;
 	right: 0;
 	bottom: 0;
 	left: 0;
+}
+
+@mixin transition-delay ($opacity, $delay, $transform: none) {
+	opacity: $opacity; 
+	transition-delay: $delay;
+	transform: $transform;
+}
+
+@mixin transition ($opacity, $transition, $transform: none){
+	opacity: $opacity;
+	transition: $transition;
+	transform: $transform;
 }

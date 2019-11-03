@@ -1,0 +1,39 @@
+@import './imports.scss';
+
+.photo {
+	padding: 20px;
+}
+
+.description {
+	padding: 10px;
+	color: $white;
+	@include flex-column();
+	justify-content: space-between;
+	height: 100%;
+}
+
+.title {
+    color: #BFBFBF;
+	h2 {
+		font-size: 2em;
+	}
+	p {
+		text-indent: 1em;
+		
+	}
+}
+.info {
+	p {
+		margin-bottom: 0;
+		text-align: right;
+        font-size: 0.9em;
+        color: #BFBFBF;
+	}
+}
+@media (min-width: 768px) {
+	.title {
+		h2 {
+			font-size: 3em;
+		}
+	}
+}

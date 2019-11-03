@@ -3,7 +3,7 @@ import Footer from './Footer';
 import { Helmet } from 'react-helmet';
 
 const Layout = props => (
-  <div>
+  <div  style={{background: 'black'}}>
         <Helmet>
             <meta charSet="utf-8" />
             <title>Picture of the Week Gallery</title>
