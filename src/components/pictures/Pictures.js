@@ -29,9 +29,6 @@ export default class Pictures extends Component {
 		});
 	}
 
-	closeModal() {
-		this.setState({modalIsOpen: false});
-	}
 	loadPhotos() {
 		axios.get('https://s3-us-west-2.amazonaws.com/picture-gallery.bodiewebdesign.com/assets/data/pictures.json')
 			.then(response => {
