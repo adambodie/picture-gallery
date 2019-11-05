@@ -1,0 +1,15 @@
+@import './imports.scss';
+
+.my-jumbotron {
+    background-color: rgba(0,0,0,0.7);
+    color: $white;
+    padding: 60px 30px;
+    h1 {
+        margin-bottom: 20px;
+    }
+    p {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+    }
+}

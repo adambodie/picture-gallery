@@ -4,10 +4,10 @@
 	width: 100%;
 	color: $white;
 	@include gradient (black, $primary-color);
-	font-size: 1.5em;
+	font-size: 1em;
 	margin-bottom: 0;
 	p {
-		margin-right: 10px;
+		text-indent: 0.5em;
 	}
 } 
 .navbar-bottom {

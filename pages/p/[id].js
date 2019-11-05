@@ -1,22 +1,12 @@
-import Layout from '../../src/components/myLayout.js';
-import fetch from 'isomorphic-unfetch';
+import Layout from '../../src/components/myLayout.js'
+import Picture from '../../src/components/Picture.js'
+import '../../src/styles/picture.scss'
+import fetch from 'isomorphic-unfetch'
 
 const Post = props => (
     <Layout>
-        <div className="row modal-body" style={{background: 'black'}}>
-            <div className="col-sm-6">
-                <img src={`https://s3-us-west-2.amazonaws.com/picture-gallery.bodiewebdesign.com/assets/img/${props.item.image}.jpg`} alt={props.item.title} className="img-fluid"/>
-            </div>
-            <div className="modal-description col-sm-6">
-                <div className="modal-title">
-                    <h2>{props.item.title}</h2>
-                    <p>{props.item.description}</p>
-                </div>
-                <div className="modal-info">
-                    <p>Week of: {props.item.week}</p>
-                    <p>Location: {props.item.location}, {props.item.state}</p>
-                </div>
-            </div>
+        <div className="container-fluid">
+            <Picture item={props.item} />
         </div>
     </Layout>
 );

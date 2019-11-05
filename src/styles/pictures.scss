@@ -1,5 +1,7 @@
 @import './imports.scss';
 
+
+
 .pictures {
 	color: $white;
 }
@@ -47,11 +49,11 @@ h1 {
 .view {
     margin: 10px;
     float: left;
-    border: 10px solid #fff;
+    border: 10px solid $white;
     overflow: hidden;
     position: relative;
     text-align: center;
-    box-shadow: 1px 1px 2px #e6e6e6;
+    box-shadow: 1px 1px 2px $white;
 	cursor: default;
 	img {
     	display: block;
@@ -59,18 +61,18 @@ h1 {
 	}
 	h2 {
 		text-transform: uppercase;
-		color: #fff;
+		color: $white;
 		text-align: center;
 		position: relative;
 		font-size: 16px;
 		padding: 10px;
 		background: rgba(0, 0, 0, 0.8);
-		border-bottom: 1px solid white;
+		border-bottom: 1px solid $white;
 	}
 	p {
 		font-size: 12px;
 		position: relative;
-		color: #fff;
+		color: $white;
 		padding: 10px 20px 20px;
 		text-align: center
 	}
@@ -79,7 +81,7 @@ h1 {
 		text-decoration: none;
 		padding: 7px 14px;
 		background: rgb(56,56,56);
-		color: #fff;
+		color: $white;
 		text-transform: uppercase;
 		box-shadow: 0 0 1px #000;
 		&:hover {

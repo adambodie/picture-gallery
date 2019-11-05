@@ -9,7 +9,7 @@
 		@include gradient(black, $primary-color);
 	}
 	h1 {
-		color: white;
-		padding: 20px;
+		color: $white;
+		text-indent: 0.5em;
 	}
 }
