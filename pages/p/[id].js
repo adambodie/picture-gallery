@@ -1,6 +1,6 @@
-import Layout from '../../src/components/myLayout.js'
-import Picture from '../../src/components/Picture.js'
-import '../../src/styles/picture.scss'
+import Layout from '../../components/myLayout.js'
+import Picture from '../../components/Picture.js'
+import '../../styles/picture.scss'
 import fetch from 'isomorphic-unfetch'
 
 const Post = props => (

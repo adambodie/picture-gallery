@@ -1,4 +1,4 @@
-import '../../src/styles/picture.scss'
+import '../styles/picture.scss'
 
 
 const Picture = ({item}) => (
